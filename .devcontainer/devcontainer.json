@@ -19,7 +19,7 @@
       ]
     }
   },
-  "postCreateCommand": "git submodule update --init --recursive && go mod download",
+  "postCreateCommand": "command -v git-lfs >/dev/null 2>&1 || (sudo apt-get update && sudo apt-get install -y git-lfs) && git lfs install && git submodule update --init --recursive && go mod download",
   "postStartCommand": "make help",
   "remoteUser": "vscode"
 }
